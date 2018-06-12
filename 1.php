@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>My first PHP page</h1>
-
 <?php
-echo "Hello World!";
-?>
 
-</body>
-</html>
+if(isset($_POST['button_pressed']))
+{
+    $to      = 'nobody@example.com';
+    $subject = 'the subject';
+    $message = 'hello';
+    $headers = 'From: webmaster@example.com' . "\r\n" .
+        'Reply-To: webmaster@example.com' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+
+    mail($to, $subject, $message, $headers);
+
+    echo 'Email Sent.';
+}
+
+?>
